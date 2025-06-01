@@ -158,7 +158,7 @@ def build_graphs_for_match(tracking_data, labels_stacked, window_size=5):
         graphs.append(graph)
     return graphs
 
-# Define match files with correct paths
+# Define match files 
 match_files = [
     ("/Users/celine/Desktop/Speciale/Match data/Match data 1/FC København - FC Nordsjælland-selected/f24-100-2023-2437685-eventdetails.xml",
      "/Users/celine/Desktop/Speciale/Match data/Match data 1/FC København - FC Nordsjælland-selected/20240526-FCK-FCN_c2e0daa5-c2b2-44d3-a14e-a35650215b79_SecondSpectrum_Data.xml",
