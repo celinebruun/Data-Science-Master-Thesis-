@@ -198,8 +198,8 @@ for g in train_set:
 class_weights = torch.tensor(len(train_set) / (label_counts + 1e-8), dtype=torch.float32)
 class_weights = torch.clamp(class_weights, max=10.0)
 
-# TGN Model
-class TGNEventPredictor(nn.Module):
+# GAT-LSTM Model
+class GATLSTMEventPredictor(nn.Module):
     def __init__(self, in_channels, hidden_channels, lstm_hidden, out_channels, heads=4):
         super().__init__()
         self.gat1 = GATConv(in_channels, hidden_channels, heads=heads, concat=True)
@@ -223,7 +223,7 @@ class TGNEventPredictor(nn.Module):
         return out
 
 # Initialize model
-model = TGNEventPredictor(in_channels=3, hidden_channels=64, lstm_hidden=64, out_channels=len(group_names))
+model = GATLSTMEventPredictor(in_channels=3, hidden_channels=64, lstm_hidden=64, out_channels=len(group_names))
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 criterion = nn.BCEWithLogitsLoss(pos_weight=class_weights)
 
